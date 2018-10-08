@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="经典力学复习"><span class="header-section-number">1</span> 经典力学复习</h1>
+<p>经典力学根本上是使用伽利略时空观的牛顿力学。我们在经典力学中研究一些力学量（mechanical variables）以及其关系。力学量又称可观测量（observables）。考虑到在伽利略时空观中时间是个特殊的量，只是个参数，<em>不是</em>力学量。</p>
+<h2 id="质点力学"><span class="header-section-number">1.1</span> 质点力学</h2>
+<p>对一个质点而言，力学量有：</p>
+<ul>
+<li><span class="math inline">\({\mathbf{r}}\)</span>：位移</li>
+<li><span class="math inline">\(\dot{{\mathbf{r}}}\)</span>：速度</li>
+<li><span class="math inline">\(\ddot{{\mathbf{r}}}\)</span>：加速度</li>
+</ul>
+<p>在牛顿力学中，对单个质点的运动，位移二阶以上的导数是没有物理意义的。不过对有些体系，有某些力学量的二阶以上的导数是有意义的。</p>
+<p>还有几个力学量：</p>
+<ul>
+<li>动量</li>
+<li>能量：一般指机械能。</li>
+<li>角动量：对质点系，刚体尤为重要。注意力矩和角动量关系：<span class="math display">\[{\mathbf{M}} = \frac{{\mathrm{d}}L}{{\mathrm{d}}t}\]</span></li>
+</ul>
+<p>量子力学是经典力学的扩展，但没有颠覆其时空观。</p>
+<h2 id="刚体力学"><span class="header-section-number">1.2</span> 刚体力学</h2>
+<p>刚体的定点运动可以分为以下三个参数：</p>
+<ul>
+<li>进动 procession</li>
+<li>章动 nutation</li>
+<li>转动 spin：在量子力学中被作为了一个内禀的物理量所使用。</li>
+</ul>
+<h2 id="分析力学"><span class="header-section-number">1.3</span> 分析力学</h2>
+<p>分析力学，又名Hamilton-Lagrange力学。</p>
+<h3 id="最小作用量原理和拉格朗日方程"><span class="header-section-number">1.3.1</span> 最小作用量原理和拉格朗日方程</h3>
+<p>最小作用量原理（Hamilton原理） <span class="math display">\[
+\delta S = 0
+\]</span> 是分析力学的重要原理。</p>
+<p>作用量为： <span class="math display">\[
+S = \int{L(q,\dot{q};t) {\mathrm{d}}t}
+\]</span> 中<span class="math inline">\(L\)</span>为Lagrangian，只显含广义位置（正则位置）和广义速度。注意这个<em>显含</em>是我们人为赋予的意义，<span class="math inline">\(L\)</span><em>是</em>动量的函数，只是<em>不是显含动量</em>而已。我们可以把<span class="math inline">\(L\)</span>改写为 <span class="math display">\[
+L&#39; = L&#39;(q,p;t)
+\]</span> 只是这个时候其物理意义就不明显了。</p>
+<p>可以通过最小作用量原理”推出”（逻辑上应该不能）拉格朗日方程： <span class="math display">\[
+\frac{\partial L}{\partial q} = \frac{{\mathrm{d}}}{{\mathrm{d}}t}(\frac{\partial L}{\partial \dot{q}})
+\]</span></p>
+<p>过程如下。 <span class="math display">\[
+\delta S = \delta \int{L(q,\dot{q};t){\mathrm{d}}t} =\int{(\frac{\partial L}{\partial q}\delta q +\frac{\partial L}{\partial \dot{q}}\delta\dot{q}){\mathrm{d}}t}  
+\]</span> 为了理解这个过程，可以吧<span class="math inline">\(\delta q\)</span>理解为两个区别很小的函数之差： <span class="math display">\[
+\delta q \to q&#39;(t) - q(t)
+\]</span> 这个差当然也是函数啦。因此， <span class="math display">\[
+\delta S = \int{(\frac{\partial L}{\partial q}\delta q +\frac{\partial L}{\partial \dot{q}}\frac{{\mathrm{d}}}{{\mathrm{d}}t}(\delta q)){\mathrm{d}}t}  
+\]</span> 可以这么做是因为变分和微分算子的线性性。</p>
+<p>分部积分，得出： <span class="math display">\[
+\delta S = \int{(\frac{\partial L}{\partial q} - \frac{{\mathrm{d}}}{{\mathrm{d}}t}\{\frac{\partial L}{\partial \dot{q}}\})\delta q {\mathrm{d}}t} +  \int{{\mathrm{d}}(\frac{\partial L}{\partial \dot{q}} \delta q)} 
+\]</span> 注意到对<span class="math inline">\(q\)</span>求变分的时候要求其起始位置一致，即<span class="math inline">\(t = 0\)</span> 和<span class="math inline">\(t = t_{\text{end}}\)</span>时<span class="math inline">\(\delta q = 0\)</span>。这样，第二项就为零啦。又<span class="math inline">\(\delta q\)</span>可以是任意形式的小函数，因此只能要求前面的系数是零了，即拉格朗日方程。</p>
+<p>在场论中也有类似的关系，只是要额外引入场变量：每处质点相对原位置的位移和速度。</p>
+<h3 id="哈密顿力学"><span class="header-section-number">1.3.2</span> 哈密顿力学</h3>
+<p>引入哈密顿量 <span class="math display">\[
+H(q,p;t) = p_{\alpha}\dot{q}_{\alpha}(q,p;t) - L(q,p;t)
+\]</span> 中广义动量 <span class="math display">\[
+p = \frac{\partial L}{\partial \dot{q}}
+\]</span> 这个时候就要如上文改写<span class="math inline">\(L\)</span>的显含关系，以保证<span class="math inline">\(H\)</span>是广义位置和广义动量的函数。</p>
+<p>可以推导出</p>
+<p> = -   = </p>
+<p>这两个一阶方程，和之前的一个二阶拉格朗日方程等价。</p>
+<p>以上这些这些都是二阶的 <span class="math display">\[
+{\mathbf{F}} = m{\mathbf{a}}
+\]</span> 的变换和推广，但与之一直保持等价。</p>
+<h3 id="possion-括号"><span class="header-section-number">1.3.3</span> Possion 括号</h3>
+<p>对任意力学量，都有： <span class="math display">\[
+\frac{{\mathrm{d}}f}{{\mathrm{d}}t} = \frac{\partial f}{\partial t} + \{f,H\}
+\]</span> 中<span class="math inline">\(\{f,H\}\)</span>为该力学量与哈密顿量的Possion括号。两个力学量之间的Posion括号定义为 <span class="math display">\[
+\{f,g\} = \frac{\partial f}{\partial q}\frac{\partial g}{\partial p} - \frac{\partial f}{\partial p}\frac{\partial g}{\partial q} 
+\]</span> 显然是反对称的一个二元算符。</p>
+<h1 id="数学的复习"><span class="header-section-number">2</span> 数学的复习</h1>
+<h2 id="分析"><span class="header-section-number">2.1</span> 分析</h2>
+<p>我们回顾一下Dirac <span class="math inline">\(\delta\)</span> 函数。<span class="math inline">\(\delta\)</span>函数不是个通常意义上的函数，不过可以用泛函的方法严格的去理解。</p>
+<p>其最重要的性质是 <span class="math display">\[
+\int_{-\infty}^{\infty} {\delta(x) dx} = 1
+\]</span> 适合用来描述集中在一点，但总量又有限的某种分布。质点，点电荷都可以用此来描述。其实，可以把<span class="math inline">\(\delta\)</span>函数视为一个符号，只能在积分下使用。</p>
+<p>更常用的性质是 <span class="math display">\[
+\int_{-\infty}^{\infty} {f(x)\delta(x) dx} = f(0)
+\]</span></p>
+<p><span class="math inline">\(\delta\)</span>函数可以看作一些函数序列的极限。比如正态分布： <span class="math display">\[
+N(\mu,\sigma;x) = \frac{1}{\sqrt{2\pi} \sigma} \exp{ - (\frac{x-\mu}{\sigma})^2} 
+\]</span> 在<span class="math inline">\(\mu = 0\)</span>，<span class="math inline">\(\sigma \to \inf\)</span>的时候的极限。</p>
+<p>一堆有偏移的<span class="math inline">\(\delta\)</span>函数的和是梳状函数，信号处理中有用。</p>
+<p><span class="math inline">\(\delta\)</span>函数是物理学家提出，数学家严格化的。</p>
+<h2 id="代数"><span class="header-section-number">2.2</span> 代数</h2>
+<p>对一般的二元运算，<span class="math display">\[AB \neq BA\]</span>，因此，提出q number 和 c number:</p>
+<ul>
+<li>q number: 不可对易</li>
+<li>c number: 运算可对易（commutable）</li>
+</ul>
+<p>引入算符（operator）的概念。在量子力学中可以理解成抽象的矩阵，矩阵是算服在具体表象（写对了嘛？）下的具体形势</p>
+<p>回顾一下，矩阵的运算：</p>
+<ul>
+<li>转置</li>
+<li>共轭（当然是复数啦）</li>
+<li>本征值</li>
+<li>Hermite共轭：<span class="math inline">\(A^{\dagger}\)</span> 转置再共轭</li>
+</ul>
+<p>回顾本征值方程： <span class="math display">\[
+\hat{A} | \psi \big \rangle = A_n | \psi \big \rangle
+\]</span> 和矩阵的本征值方程类似，不过把$理解为向量更加合适。</p>
+<ul>
+<li><span class="math inline">\(A_n\)</span>：本征值（eigenvalue）；</li>
+<li><span class="math inline">\(| \psi \big \rangle\)</span>：本征态（eigenstate）/本征向量（eigenvector）</li>
+</ul>
+<p>对易运算： <span class="math display">\[[\hat{A}, B] = AB - BA\]</span> 反对易： <span class="math display">\[[A,B]_{+} = AB + BA\]</span></p>
+<h2 id="矢量分析"><span class="header-section-number">2.3</span> 矢量分析</h2>
+<p>Einstein求和约定：一个表达式，有相同的指标，就视为对该指标求和。当然，求和范围是根据需要决定的。 <span class="math display">\[
+A_{\mu}B_{\mu} = \sum_{\mu = 1}^{3}{A_{\mu}B_{\mu}}
+\]</span></p>
+<p>Kroneker张量：</p>
+<p>_{} = { 1 (= ) 0 else}</p>
+<p>可以理解成一个分立的delta函数。</p>
+<p>对求和的指标，称为“哑指标”，叫什么都可以。</p>
+<p>回顾矢量的叉乘 <span class="math display">\[
+({\mathbf{A}} \times {\mathbf{B}})_{\alpha} = \epsilon_{\alpha\beta\gamma}A_{\beta}B_{\gamma}
+\]</span> 中<span class="math inline">\(\epsilon_{\alpha\beta\gamma}\)</span>是Levi-Civita符号。在三个指标是123的偶置换的时候为1，其他时候全部为0。</p>
+<p>对称张量和反对称张量</p>
+<ul>
+<li><p>First paragraph. Continued.</p></li>
+<li><p>Second paragraph. With a code block, which must be indented eight spaces:</p></li>
+</ul>
+</body>
+</html>
